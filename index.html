@@ -2,7 +2,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta property="og:title" content="web_assembly"/>
+  <meta property="og:description" content="simple calculator for adding two numbers"/>
+  <meta property="og:image" content="https://raw.githubusercontent.com/lignah/web_assembly/main/%E2%80%8B/thumbnail.png"/>
     <title>web_assembly</title>
     <style>
         body { font-family: Arial, sans-serif; max-width: 400px; margin: 0 auto; padding: 20px; background-color: #ebebeb; }
@@ -14,13 +17,14 @@
         @keyframes h1anime{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}
         .buttonanime{animation:buttonanime .9s both}
         @keyframes buttonanime{0%{transform:scale3d(1,1,1)}30%{transform:scale3d(1.05,.95,1)}40%{transform:scale3d(.95,1.05,1)}50%{transform:scale3d(1.02,.98,1)}65%{transform:scale3d(.98,1.02,1)}75%{transform:scale3d(1.01,.99,1)}100%{transform:scale3d(1,1,1)}}
+        input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
     </style>
 </head>
 <body>
     <h1 class="h1anime">web_assembly by c/c++</h1>
     <p>enter two numbers to add:</p>
-    <input type="text" id="num1" placeholder="number 1">
-    <input type="text" id="num2" placeholder="number 2">
+    <input type="number" id="num1" placeholder="number 1">
+    <input type="number" id="num2" placeholder="number 2">
     <button class="result_button">Calculate</button>
     <p>result: <span id="result"></span></p>
 
@@ -30,7 +34,7 @@
         this.classList.remove('buttonanime');
         this.offsetWidth
         this.classList.add('buttonanime');
-      })
+      });
       async function calculate() {
         const num1 = parseInt(document.getElementById('num1').value);
         const num2 = parseInt(document.getElementById('num2').value);
@@ -42,6 +46,18 @@
           console.error("error: ", e);
         }
       }
+
+      void document.querySelector('.h1anime').addEventListener('click', $=> {
+        let text = '​'
+        let temp = document.createElement('textarea');
+        temp.style.position = 'absolute'
+        temp.style.left = '-9999px'
+        temp.value = text
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+      })
     </script>
     <script src="webassem.js"></script>
 </body>

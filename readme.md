@@ -1,7 +1,9 @@
 # c to webassembly
 
+<!-- <img src="/​/thumbnail.png" style="pointer-events: none;"> -->
+[![](/​/thumbnail.png)](https://lignah.github.io/web_assembly/)
 
-![](/​/thumbnail.png)
+**click the image to link**
 ```
 $ option)
 $ pacman -S python
@@ -23,7 +25,6 @@ $ source ./emsdk_env.sh
 ```
 lignah@DESKTOP-XRKAFN8 MSYS ~/web_assembly/emsdk
 $ cd ..
-
 ```
 
 
@@ -36,5 +37,4 @@ $ ls
 
 ```
 $ emcc <filename>.c -o <filename>.js -s EXPORTED_FUNCTIONS="['_<function_name>']" -s MODULARIZE -Os --no-entry
-
 ```
